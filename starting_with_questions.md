@@ -279,11 +279,67 @@ Seattle | United States | 2
 
 SQL Queries:
 
+```sql
+-- For this question we can only explore the sessions table
+-- as a unique id combination might be mapped to multiple 
+-- categories and hence there's no way to pick units sold from 
+-- the analytics table. 
+
+create temp table units_city_country_category AS
+select city, country,product_category,
+sum(coalesce(product_quantity, 0)) as total_units_sold_per_group,
+(select sum(coalesce(product_quantity, 0)) from 
+PUBLIC.CLEANED_SESSION_DETAILS) as total_units_sold
+from 
+PUBLIC.CLEANED_SESSION_DETAILS
+WHERE TRANSACTION_ID like '%ORD%'
+OR TRANSACTIONS = '1'
+group by city, country,product_category
+having sum(coalesce(product_quantity, 0)) > 0
+order by 4 desc
+
+-- At a city country level
+select city,country, product_category,
+sum(total_units_sold_per_group) as total_units
+from units_city_country_category
+group by city,country, product_category
+order by 4 desc
+
+-- At a city level
+select city,product_category,
+sum(total_units_sold_per_group) as total_units
+from units_city_country_category
+group by city,product_category
+order by 3 desc 
+-- for more than 50% of data, the city is not available
+-- Atlanta, Palo Alto and Mountain View are the top 3 cities
+-- with Bags and Nest-USA as the preferred categories
+
+-- At a country level
+select country,product_category,
+sum(total_units_sold_per_group) as total_units
+from units_city_country_category
+group by country,product_category
+order by 3 desc 
+-- Since US contributes upto 93% of order volume, 
+-- most of the orders are from US. Within US the preference
+-- is for following 2 categories - 
+-- 1. Home/Office/Notebooks & Journals/ - (34%)
+-- 2. Bags - 29%
+
+```
 
 
 Answer:
 
+At a country level - 
+Since US contributes upto 93% of order volume, most of the orders are from US. Within US the preference is for following 2 categories - 
+1. Home/Office/Notebooks & Journals/ - (34%)
+2. Bags - 29%
 
+At a city level
+For more than 50% of data, the city is not available. 
+Atlanta, Palo Alto and Mountain View are the top 3 cities with Bags and Nest-USA as the preferred categories
 
 
 
