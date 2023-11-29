@@ -1,9 +1,9 @@
 What are your risk areas? Identify and describe them.  
   
-We saw that in the dataset there are many such scnearios where the integrity and completeness of data is compromised. To quote few examples -
+We saw that in the dataset there are many such scenarios where the integrity and completeness of data is compromised. To quote few examples -
 1. Nulls or missing values in critical parameters
 2. Data entry issues in the website, where country or city entered is incorrect or junk
-3. Ensuring that referential integrity principles are followed at all times. There were SKU records in sessons that were not
+3. Ensuring that referential integrity principles are followed at all times. There were SKU records in sessions that were not
    present in the products table
 4. Checking for anomalies in the dataset. for example units ordered cannot be negative
 5. Conflicting data captured in a table or across tables for example one SKU shall have only one product description which wasn't the case in the dataset provided
@@ -14,7 +14,7 @@ We saw that in the dataset there are many such scnearios where the integrity and
 QA Process:
 Describe your QA process and include the SQL queries used to execute it.
 
-Below is a function written to conduct 3 DQ checks in a single go. Everytime it's executed it will check for certain failure 
+Below is a function written to conduct 3 DQ checks in a single go. Every time it's executed it will check for certain failure 
 scenarios and if such cases are found it will store the error messages in an array and return that to the user. 
 
 Code - 
