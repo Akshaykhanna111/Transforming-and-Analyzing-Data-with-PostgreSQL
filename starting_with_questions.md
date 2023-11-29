@@ -251,10 +251,7 @@ create temp table units_city_country AS
 				FROM PUBLIC.CLEANED_SESSION_DETAILS) T4 ON 
 	 			T3.UNIQUE_ID = T4.UNIQUE_ID) 
 
--- Owing to very less matches between sessions and analytics
--- table plus the filter of transactionid being applied on sessions
--- total count of rows is 101 and hence the avg qty will be on the lower
--- side due to lack of sufficient data
+
 
 select city, country, avg(total_units) as avg_qty_sold 
 from units_city_country
@@ -263,7 +260,7 @@ having avg(total_units) > 0
 order by avg_qty_sold desc
 
 ```
-
+Owing to very less matches between sessions and analytics tables plus the filter of transactionid being applied on sessions - total count of rows is 101 and hence the avg qty will be on the lower side due to lack of sufficient data
 
 Answer:
 Following are the top 5 city and country combinations (after excluding scenarios where junk values are present in city and country)-  
