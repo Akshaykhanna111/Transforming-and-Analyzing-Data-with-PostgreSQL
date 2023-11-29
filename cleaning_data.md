@@ -126,6 +126,7 @@ FROM
 
 -- Below is the query to check for anomalies, duplicates, missing values
 
+```sql
 select * from product_details
 
 -- Query to check for same name mapped to multiple SKUs
@@ -144,11 +145,13 @@ min("sentimentMagnitude"), max("sentimentMagnitude"),
 min(total_ordered), max(total_ordered)
 from public.product_details
 
+```
 -- Some goods like Kick Ball which have sales order count of 3 and inventory 
 -- of 723, have been ordered in large quantities ~15K 
 
 -- Now we will rename the columns and create a final products table
 
+```sql
 create table cleaned_product_details as
 select "SKU" as sku,
 trim(both ' ' from name) as product_name,
@@ -493,7 +496,7 @@ ALTER TABLE cleaned_session_details
 ADD CONSTRAINT fk_session_product
 FOREIGN KEY (sku) REFERENCES cleaned_product_details(sku);
 
-
+```
 -- Finally we will be using 3 tables -- 
 -- 1. cleaned_product_details
 -- 2. cleaned_session_details
