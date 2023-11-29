@@ -50,10 +50,6 @@ In the **QA.md** file, identify and describe your risk areas. Develop and execut
 ## Part 6: Generate the ERDLoading Your Final Table Into PostgreSQL Database
 
 ERD Diagram    
-
-![Schema](https://github.com/Akshaykhanna111/SQL-Project/assets/149816676/cbf086f6-0a86-4d9f-99c6-7dad61c219d6) 
-
-
-![Schema](https://github.com/Akshaykhanna111/SQL-Project/assets/149816676/cbf086f6-0a86-4d9f-99c6-7dad61c219d6)
-
+     
+![Schema](https://github.com/Akshaykhanna111/SQL-Project/assets/149816676/21dc6442-85a2-4626-9e88-dc2acb648097)
 
