@@ -49,6 +49,7 @@ In the **QA.md** file, identify and describe your risk areas. Develop and execut
 
 ## Part 6: Generate the ERDLoading Your Final Table Into PostgreSQL Database
 
+
 Inside pgAdmin, you can generate the ERD for the database. 
 
 ![](https://i.imgur.com/KxVRJD3.png)
