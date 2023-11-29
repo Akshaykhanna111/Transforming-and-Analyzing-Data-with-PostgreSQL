@@ -402,9 +402,9 @@ At a country level, since US contributes 93% of sales volume, listed below are t
 
 SQL Queries:
 
-
-
+-- Already answered in Question 1 above
 Answer:
+The queries summarizing contributions at city and country level have been shared above in Q1. The data is too less to make any further observations on this subject. 
 
 
 
