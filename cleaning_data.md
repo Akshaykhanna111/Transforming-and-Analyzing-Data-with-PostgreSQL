@@ -11,8 +11,10 @@ In cleaning code, we will be checking for follwing issues -
 Queries:
 Below, provide the SQL queries you used to clean your data.
 
--- Post data upload and validation of count of records 
--- and data type values uploaded, create a schema design of 
+
+```sql
+-- The first steps after data upload are validation of count of records, 
+-- checking sum of numerical columns, looking for corruption of data etc. Post that create a schema design of 
 -- normalized database. 
 
 -- In the current files the data is not normalized and lots of 
@@ -65,7 +67,6 @@ Below, provide the SQL queries you used to clean your data.
 	-- Customer Table - Customer ID, customer demographic details 
 
 
-```sql
 -- DROP TABLE public.product_details CASCADE;
 
 CREATE TABLE public.product_details
