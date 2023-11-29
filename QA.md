@@ -1,4 +1,4 @@
-What are your risk areas? Identify and describe them.
+What are your risk areas? Identify and describe them.  
 We saw that in the dataset there are many such scnearios where the integrity and completeness of data is compromised. To quote few examples -
 1. Nulls or missing values in critical parameters
 2. Data entry issues in the website, where country or city entered is incorrect or junk
