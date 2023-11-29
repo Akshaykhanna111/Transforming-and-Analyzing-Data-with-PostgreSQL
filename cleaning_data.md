@@ -497,7 +497,7 @@ ADD CONSTRAINT fk_session_product
 FOREIGN KEY (sku) REFERENCES cleaned_product_details(sku);
 
 ```
--- Finally we will be using 3 tables -- 
--- 1. cleaned_product_details
--- 2. cleaned_session_details
--- 3. revenue_analytics_table
+Finally we will be using 3 tables -- 
+ 1. cleaned_product_details
+ 2. cleaned_session_details
+ 3. revenue_analytics_table
