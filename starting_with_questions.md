@@ -401,10 +401,22 @@ At a country level, since US contributes 93% of sales volume, listed below are t
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 SQL Queries:
+```sql
+-- Already answered in Question 1 above```
 
--- Already answered in Question 1 above
 Answer:
-The queries summarizing contributions at city and country level have been shared above in Q1. The data is too less to make any further observations on this subject. 
+The queries summarizing contributions at city and country level have been shared above in Q1. The data is too less to make any further observations on this subject.
+
+Top 3 Countries - 
+1. USA ~ 93%
+2. Israel ~ 4%
+3. Australia ~ 2.4%
+
+Top 3 Cities (after excluding records where city was not available)-
+1. Sunnyvale ~ 11%
+2. San Francisco ~ 11%
+3. Atlanta ~ 6%
+
 
 
 
