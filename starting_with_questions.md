@@ -348,12 +348,54 @@ Further analysis can be done to look for seasonal patterns but owing to data vol
 
 SQL Queries:
 
+```sql
+create temp table units_city_country_product_name AS
+select city, country,product_name,
+sum(coalesce(product_quantity, 0)) as total_units_sold_per_group,
+(select sum(coalesce(product_quantity, 0)) from 
+PUBLIC.CLEANED_SESSION_DETAILS) as total_units_sold
+from 
+PUBLIC.CLEANED_SESSION_DETAILS
+WHERE TRANSACTION_ID like '%ORD%'
+OR TRANSACTIONS = '1'
+group by city, country,product_name
+having sum(coalesce(product_quantity, 0)) > 0
+order by 4 desc
+
+-- At a city country level
+select city,country, product_name,
+sum(total_units_sold_per_group) as total_units
+from units_city_country_product_name
+group by city,country, product_name
+order by 4 desc
 
 
+-- At a city level
+select city,product_name,
+sum(total_units_sold_per_group) as total_units
+from units_city_country_product_name
+group by city,product_name
+order by 3 desc 
+
+
+-- At a country level
+select country,product_name,
+sum(total_units_sold_per_group) as total_units
+from units_city_country_product_name
+group by country,product_name
+order by 3 desc 
+
+```
 Answer:
 
 
+At a city level for more than 50% of data, the city is not available. Atlanta, and Palo Alto are the top 2 cities with 'Reusable Shopping Bag' and  Nest® Learning Thermostat 3rd Gen-USA - Stainless Steel' as the preferred products. Also for 50% of data where city is not available, 'Leatherette Journal' and 'Reusable Shopping Bag' are the 
+preferred products.
 
+
+At a country level, since US contributes 93% of sales volume, listed below are the top products for the same - 
+1. Leatherette Journal (35%)
+2. Reusable Shopping Bag (29%)
 
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
