@@ -266,12 +266,12 @@ order by avg_qty_sold desc
 
 
 Answer:
-Following are the top 5 city and country combinations (after excluding scenarios where junk values are present in city and country)-
-City | Country | Avg Qty
-Sunnyvale | United States | 15
-Atlanta	| United States	| 4
-San Francisco | United States | 3
-Seattle | United States | 2
+Following are the top 5 city and country combinations (after excluding scenarios where junk values are present in city and country)-  
+City | Country | Avg Qty  
+Sunnyvale | United States | 15  
+Atlanta	| United States	| 4  
+San Francisco | United States | 3  
+Seattle | United States | 2  
 
 
 
