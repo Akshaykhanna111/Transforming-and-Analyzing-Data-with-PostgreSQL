@@ -96,9 +96,27 @@ order by 1
 
 Answer: Traffic volume is standard during weekdays around 15-16% whereas on weekends the volume dips to 10%. Probably more campaigns shall be executed during weekdays compared to weekends. Over a period of time the web traffic has been coming down as seen in the month-year trend analysis. The web traffic peaks during the day time between 2:00 pm to 7:00 pm. 
 
-Question 4:
+Question 4:List the top 10 and bottom 10 products as per the product sentiment
 
 SQL Queries:
+
+```sql
+-- Top 5 products
+
+select product_name, sentiment_score
+from public.cleaned_product_details 
+where sentiment_score is not null
+order by 2 desc limit 10
+
+-- Bottom 5 products
+
+select product_name, sentiment_score
+from public.cleaned_product_details 
+where sentiment_score is not null
+order by 2 limit 10
+
+
+```
 
 Answer:
 
