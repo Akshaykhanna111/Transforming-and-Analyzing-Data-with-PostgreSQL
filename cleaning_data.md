@@ -65,7 +65,7 @@ Below, provide the SQL queries you used to clean your data.
 	-- Customer Table - Customer ID, customer demographic details 
 
 
-
+```sql
 -- DROP TABLE public.product_details CASCADE;
 
 CREATE TABLE public.product_details
@@ -119,7 +119,7 @@ FROM
 	
 	PUBLIC.SALES_BY_SKU PRODUCT_SALES 
 	ON PRODUCT_DT."SKU" = PRODUCT_SALES."productSKU"
-	
+```	
 -- The primary key of the new products table will be the SKU
 -- Now in the next steps we will add the ratio that was part of the 
 -- sales_report table and clean the names of few of the columns. 
