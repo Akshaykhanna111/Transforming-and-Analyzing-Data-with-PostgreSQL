@@ -1,12 +1,14 @@
 What are your risk areas? Identify and describe them.  
+  
 We saw that in the dataset there are many such scnearios where the integrity and completeness of data is compromised. To quote few examples -
 1. Nulls or missing values in critical parameters
 2. Data entry issues in the website, where country or city entered is incorrect or junk
 3. Ensuring that referential integrity principles are followed at all times. There were SKU records in sessons that were not
    present in the products table
-5. Checking for anomalies in the dataset. for example units ordered cannot be negative
-6. Conflicting data captured in a table or across tables for example one SKU shall have only one product description which wasn't the case in the dataset provided
-7. Implementing check constraints wherever not added, for example details like pincode, email address etc. have to be as per the expected format. Implementing such constraints are very difficult and same can be easily implemented through DQ check functions. 
+4. Checking for anomalies in the dataset. for example units ordered cannot be negative
+5. Conflicting data captured in a table or across tables for example one SKU shall have only one product description which wasn't the case in the dataset provided
+6. Implementing check constraints wherever not added, for example details like pincode, email address etc. have to be as per the expected format. Implementing such check constraints at the time of table creation are very difficult and same can be easily implemented through DQ check functions.
+7. Checking for standardization of values across tables. For example if one record has US and other record has USA then that can lead to issues at the time of analysis. Also, dates have to be within the expected range. 
 
 
 QA Process:
