@@ -341,7 +341,7 @@ At a city level
 For more than 50% of data, the city is not available. 
 Atlanta, Palo Alto and Mountain View are the top 3 cities with Bags and Nest-USA as the preferred categories
 
-
+Further analysis can be done to look for seasonal patterns but owing to data volume very low (81 transactions with successful order id) it won't be feasible in the current scope. 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
