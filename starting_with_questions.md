@@ -211,10 +211,68 @@ Top 3 Cities (after excluding records where city was not available)-
 
 
 SQL Queries:
+```sql
 
+DROP TABLE units_city_country CASCADE;
+create temp table units_city_country AS
+	(SELECT T3.UNIQUE_ID,
+	 		T3.total_units,
+			T4.CITY,
+			T4.COUNTRY
+		FROM
+			(select UNIQUE_ID, 
+			 SUM(units_sold) as total_units
+			 from 
+			 (SELECT CONCAT(FULL_VISITOR_ID,
+					VISIT_ID) AS UNIQUE_ID,
+			 		REVENUE,
+					units_sold AS units_sold
+				FROM PUBLIC.REVENUE_ANALYTICS_TABLE) t1
+				GROUP BY UNIQUE_ID
+			 
+				UNION 
+			 	select UNIQUE_ID, 
+				 SUM(total_units_sold) as total_units
+				 from 
+				 (SELECT DISTINCT 
+					CONCAT(FULL_VISITOR_ID,
+					VISIT_ID) UNIQUE_ID,
+					total_transaction_revenue,
+				  	product_quantity AS total_units_sold
+				  FROM PUBLIC.CLEANED_SESSION_DETAILS
+					WHERE TRANSACTION_ID like '%ORD%'
+						OR TRANSACTIONS = '1') t2
+			 GROUP BY UNIQUE_ID) T3
+			JOIN
+			(SELECT DISTINCT CONCAT(FULL_VISITOR_ID,
+					VISIT_ID) UNIQUE_ID,
+					COUNTRY,
+					CITY
+				FROM PUBLIC.CLEANED_SESSION_DETAILS) T4 ON 
+	 			T3.UNIQUE_ID = T4.UNIQUE_ID) 
+
+-- Owing to very less matches between sessions and analytics
+-- table plus the filter of transactionid being applied on sessions
+-- total count of rows is 101 and hence the avg qty will be on the lower
+-- side due to lack of sufficient data
+
+select city, country, avg(total_units) as avg_qty_sold 
+from units_city_country
+group by city, country
+having avg(total_units) > 0
+order by avg_qty_sold desc
+
+```
 
 
 Answer:
+Following are the top 5 city and country combinations - 
+Sunnyvale	United States	15
+City Not Available	United States	12
+Atlanta	United States	4
+San Francisco	United States	3
+Seattle	United States	2
+![Uploading image.png…]()
 
 
 
