@@ -120,14 +120,14 @@ FROM
 	
 	PUBLIC.SALES_BY_SKU PRODUCT_SALES 
 	ON PRODUCT_DT."SKU" = PRODUCT_SALES."productSKU"
-```	
+	
 -- The primary key of the new products table will be the SKU
 -- Now in the next steps we will add the ratio that was part of the 
 -- sales_report table and clean the names of few of the columns. 
 
 -- Below is the query to check for anomalies, duplicates, missing values
 
-```sql
+
 select * from product_details
 
 -- Query to check for same name mapped to multiple SKUs
@@ -146,13 +146,12 @@ min("sentimentMagnitude"), max("sentimentMagnitude"),
 min(total_ordered), max(total_ordered)
 from public.product_details
 
-```
 -- Some goods like Kick Ball which have sales order count of 3 and inventory 
 -- of 723, have been ordered in large quantities ~15K 
 
 -- Now we will rename the columns and create a final products table
 
-```sql
+
 create table cleaned_product_details as
 select "SKU" as sku,
 trim(both ' ' from name) as product_name,
