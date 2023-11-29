@@ -118,7 +118,7 @@ order by 2 limit 10
 
 ```
 
-Answer: Products in the bottom 10 list shall be kept only during their demand season and should be dropped at the rest of times as it's leading to unnecessary operational costs and certainly bad sentiment amongst their customers. 
+Answer: Products in the bottom 10 list shall be kept only during their demand season and should be dropped at the rest of times as it's leading to unnecessary operational costs and certainly bad sentiment amongst the customers who bought the same. 
 
 Question 5: List down top 3 categories in each of the quarter to study the seasonality of categories throughout the year. 
 
@@ -142,4 +142,4 @@ ranks <= 3
 
 ```
 
-Answer:Apparel is the most popular category across quarters, followed by Electronics and office goods. Knowing customer preferences for the season will help in reducing inventory management and supply chain costs. 
+Answer:Apparel is the most popular category across quarters, followed by Electronics and office goods. Knowing customer preferences for the season will help in reducing inventory management and supply chain costs by accordingly spending resources on the required goods. 
