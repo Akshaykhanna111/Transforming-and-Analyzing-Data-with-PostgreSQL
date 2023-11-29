@@ -54,17 +54,45 @@ group by country
 order by 2 desc
 limit 6
 
-
 ```
-
-
 Answer:
+Top countries from conversion stand point are Israel, Switzerland and US. Top channels in terms of conversion rates are Referral, Direct and Paid Search. 
 
 
 
-Question 3: 
+Question 3: Analyze web traffic data by day, month, year and highlight if any insights found.
 
 SQL Queries:
+```sql
+
+-- Year Month wise trends
+
+select concat(to_char(visit_date_time, 'YYYY'), '-',
+to_char(visit_date_time, 'Mon')) as Year-Month
+count(*) as total_count_visits
+from public.cleaned_session_details
+group by concat(to_char(visit_date_time, 'YYYY'), '-',
+to_char(visit_date_time, 'Mon') as Month)
+order by 1
+
+-- Day wise trends
+
+select 
+to_char(visit_date_time, 'Day') as Day,
+count(*) as total_count_visits
+from public.cleaned_session_details
+group by to_char(visit_date_time, 'Day')
+
+-- Hour wise trends
+
+select 
+to_char(visit_date_time, 'HH24') as Hour,
+count(*) as total_count_visits
+from public.cleaned_session_details
+group by to_char(visit_date_time, 'HH24')
+order by 1
+
+```
 
 Answer:
 
