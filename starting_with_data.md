@@ -118,12 +118,28 @@ order by 2 limit 10
 
 ```
 
-Answer:
+Answer: Products in the bottom 10 list shall be kept only during their demand season and should be dropped at the rest of times as it's leading to unnecessary operational costs and certainly bad sentiment amongst their customers. 
 
-
-
-Question 5: 
+Question 5: List down top 3 categories in each of the quarter to study the seasonality of categories throughout the year. 
 
 SQL Queries:
 
-Answer:
+```sql
+select * from 
+(select *, 
+row_number() over (partition by Quarter
+				  order by total_count_visits desc Nulls last) as ranks
+from 
+(select product_category, 
+to_char(visit_date_time, 'Q') as Quarter,
+count(*) as total_count_visits
+from public.cleaned_session_details
+ where product_category <> 'Category Not Available'
+group by product_category, 
+to_char(visit_date_time, 'Q')) t) t2
+where 
+ranks <= 3
+
+```
+
+Answer:Apparel is the most popular category across quarters, followed by Electronics and office goods. Knowing customer preferences for the season will help in reducing inventory management and supply chain costs. 
