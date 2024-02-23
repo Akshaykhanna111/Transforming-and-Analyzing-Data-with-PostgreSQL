@@ -1,4 +1,4 @@
-# Final-Project-Transforming-and-Analyzing-Data-with-SQL
+# Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
 The objective of this project is to study the data of an ecommerce platform and derive insights from it that can help make strategic business decisions and highlight issues pertaining to customer experience. The data points provided for analysis comprises of web session details, user activity logs and product related information like inventory turnover ratio and customer sentiment. It's an open ended problem statement with few specific scenarios wherein particular information is required from the data analyst regarding revenue across categories, cities and countries. 
