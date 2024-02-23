@@ -47,9 +47,4 @@ The answer to the question
 In the **QA.md** file, identify and describe your risk areas. Develop and execute a QA process to address them and validate the accuracy of your results. Provide the SQL queries used to execute the QA process.
 
 
-## Part 6: Generate the ERDLoading Your Final Table Into PostgreSQL Database
-
-ERD Diagram    
-     
-![Schema](https://github.com/Akshaykhanna111/SQL-Project/assets/149816676/21dc6442-85a2-4626-9e88-dc2acb648097)
 
